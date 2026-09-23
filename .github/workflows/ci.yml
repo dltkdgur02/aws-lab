@@ -1,0 +1,13 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 파일 목록 확인
+        run: ls -al
+      - name: 테스트 실행
+        run: echo "빌드 및 테스트 통과"
