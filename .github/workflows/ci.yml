@@ -1,13 +1,16 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: 파일 목록 확인
+      - name: 코드 가져오기
+        uses: actions/checkout@v4
+      - name: 파일 확인
         run: ls -al
-      - name: 테스트 실행
-        run: echo "빌드 및 테스트 통과"
+      - name: 로그인 파일 검사
+        run: test -f login.md && echo "login.md OK"
